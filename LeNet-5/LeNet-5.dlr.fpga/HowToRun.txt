@@ -1,0 +1,39 @@
+[DPU project for FPGA]
+<LeNet-5.dlr.fpga>
+
+1. C-based simulation
+
+   $ cd LeNet-5.dlr.fpga
+   $ cd hw/hls/tcl.float
+   $ source $XILINX_VIVADO/settings64.sh
+   $ make CSIM=1 SYN=0 COSIM=0
+
+2. High level synthesis
+
+   $ cd LeNet-5.dlr.fpga
+   $ cd hw/hls/tcl.float
+   $ source $XILINX_VIVADO/settings64.sh
+   $ make CSIM=0 SYN=1 COSIM=0
+
+3. Co-simulation (It also carries out HLS.)
+   - It causes error:"xsim.dir/lenet5/xsimk" does not exist
+
+   $ cd LeNet-5.dlr.fpga
+   $ cd hw/hls/tcl.float
+   $ source $XILINX_VIVADO/settings64.sh
+   $ make CSIM=0 SYN=1 COSIM=1
+
+4. FPGA implementation
+
+   $ cd LeNet-5.dlr.fpga
+   $ cd hw/impl/vivado.zed.confmc.float
+   $ make
+
+5. Run with SW
+
+   $ cd LeNet-5.dlr.fpga
+   $ cd sw.native/lenet.confmc
+   $ souce /opt/confmc/2020.06/settings.sh
+   $ make
+   $ make run
+

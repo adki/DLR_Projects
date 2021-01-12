@@ -1,0 +1,24 @@
+
+0. Run Python Virtual Environment containing PyTorch
+
+   $ source pytorch-ven/bin/activate
+
+   do not forget to run '$ deactivate' after run all.
+
+1. Training
+
+   $ make run.train
+   or
+   $ python3 src/lenet5_train.py
+
+2. Inferencing
+
+   $ make run.infer
+   or
+   $ python3 src/lenet5_infer.py samples/t_00_c4.png
+
+3. Get parameters
+
+   $ make run_params
+   or
+   $ python3 src/lenet5_params.py

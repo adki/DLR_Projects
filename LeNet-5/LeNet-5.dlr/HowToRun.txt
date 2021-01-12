@@ -1,0 +1,16 @@
+[DPU project in C or C++]
+<LeNet-5.dlr>
+
+   - DPU DLR library should be ready
+   - Trained parameter should be ready, e.g., 'lenet5_params.h'
+   - The results should be the same as that of 'LeNet-5.pytorch'.
+
+    $ cd LeNet-5.dlr/native.c   == for C
+    $ cd LeNet-5.dlr/native.cpp == for C++
+
+    $ make
+    $ make run
+
+    $ make clean
+    $ make run.profile
+

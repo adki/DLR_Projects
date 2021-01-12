@@ -1,0 +1,41 @@
+
+0. Run Python Virtual Environment containing PyTorch
+
+   $ source pytorch-ven/bin/activate
+
+   do not forget to run '$ deactivate' after run all.
+
+1. Training
+   - Make sure 'INPUT_CHANNELS' reflects correct number: 1 for gray, 3 for color
+
+   $ make run.train
+   or
+   $ python3 src/lenet5_train.py
+
+   *checkpoints/mnist_model_final.pth  - PyTorch
+   *checkpoints/mnist_params_final.pth - PyTorch
+   *checkpoints/mnist_final.weights    - Darknet
+   *checkpoints/mnist_model_final.onnx - ONNX
+
+
+2. Training with Tensorboard
+   - Make sure there is no 'tensorboard' server process still running.
+     --> $ pgrep -u ${USER} -f tensorboard | xargs kill -9
+
+   $ tensorboard --logdir=tensorboard serve
+   $ google-chrome http://localhost:6006
+
+3. Inferencing
+
+   $ make run.infer
+   or
+   $ python3 src/lenet5_infer.py samples/t_00_c4.png
+
+4. Get parameters
+
+   $ make run_params
+   or
+   $ python3 src/lenet5_params.py
+
+   * lenet5_params.h  - for DLR
+   * lenet5.weights   - for Darknet

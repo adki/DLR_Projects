@@ -1,6 +1,6 @@
-# LeNet-5 project using DLR (Deep Learning Routine)
-This <a href="https://github.con/adki/Deep_Learing_Projects/LeNet-5" target="_blank">project
-(https://github.con/adki/DLR_Projects/LeNet-5)</a>
+# LeNet-5 project using DLR (Deep Learning Routines)
+This <a href="https://github.com/adki/DLR_Projects" target="_blank">project
+(https://github.com/adki/DLR_Projects)</a> LeNet-5
 explains how LeNet-5 is implemented on FPGA,
 in which it uses following tools and libraries to implement the network on FPGA.
 
@@ -9,10 +9,10 @@ in which it uses following tools and libraries to implement the network on FPGA.
 | *Running LeNet-5 on FPGA through USB* |
 
 * PyTorch framework to train LeNet-5
-* DLR (<a href="https://github.com/github-fds/Deep_Learning_Routines" target="_blank">Deep Learning Routine</a>) to model LeNet-5 in C++
+* DLR (<a href="https://github.com/github-fds/Deep_Learning_Routines" target="_blank">Deep Learning Routines</a>) to model LeNet-5 in C++
 * Xilinx HLS to get RTL of LeNet-5
 * Xilinx Vivado to implement on FPGA
-* Future Design Systems <a href="http://www.future-ds.com/en/products.html#CON_FMC" target="_blank">CON-FMC</a> to run LeNet-5 along with FPGA board through USB: 
+* Future Design Systems <a href="http://www.future-ds.com/en/products.html#CON_FMC" target="_blank">CON-FMC</a> to run LeNet-5 along with FPGA board through USB
 
 ## Table of contents
 
@@ -62,10 +62,14 @@ This program requires followings.
 * Host computer: Ubuntu on Intel x86
 * GNU GCC: C compiler
 * Python and PyTorch
+  * PyTorch CPU-only with Miniconda: https://pytorch.org/get-started/locally
 * FPGA implementation: Xilinx Vivado 2019.2 (Xsim, HLS, ...)
+  * Vivado WebPack: https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/archive.html
 * FPGA board: Avenet ZedBoard
+  * http://zedboard.org/product/zedboard
 * USB interface board: Future Design Systems CON-FMC
-* Some Python packages like 'TensorboardX' are also required
+  * https://github.com/github-fds/confmc.x86_64.linux.2020.06
+* Some Python packages like 'mathplotlib', 'Tensorboard', and 'TensorboardX' are also required
 
 ---
 ### 1. LeNet-5 network<a name="lenet-5_network"></a>
@@ -627,7 +631,7 @@ void lenet5(       DTYPE classes[10]
 </details>
 
 ### 7. Preparing RTL using HLS<a name="hls"></a>
-First of all, go to **$PROJECT/LeNet-5.dlr.fpga/hw/hls** directory and
+First of all, go to **$PROJECT/LeNet-5.dlr.fpga/hw/hls/tcl.float** directory and
 have a look at 'script.tcl' file.<br>
 
 This step requires DLR (Deep Learning Routines) library and its PyTorch wrapper.
@@ -638,7 +642,7 @@ This step also requires Xilinx HLS.
 
 Simply run as follows to see how it works.
 ```
-$ cd $PROJECT/LeNet-5.dlr.fpga/hw/hls
+$ cd $PROJECT/LeNet-5.dlr.fpga/hw/hls/tcl.float
 $ make
 ```
 This step runs Xilinx Vivado HLS to get RTL from LeNet-5 C model.
@@ -923,4 +927,5 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 </details>
 
 ### Revision history<a name="revision_history"></a>
+* 2021.01.13: Minor correction by Ando Ki
 * 2020.12.25: Released by Ando Ki (andoki(at)gmail.com)

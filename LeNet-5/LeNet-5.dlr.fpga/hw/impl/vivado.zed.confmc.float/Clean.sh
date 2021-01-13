@@ -12,3 +12,11 @@
 /bin/rm -fr project_1
 /bin/rm -fr hd_visual
 /bin/rm -fr zed_example
+
+for F in *; do
+    if [[ -d "${F}" && ! -L "${F}" ]]; then
+    if [ -f ${F}/Clean.sh ]; then
+       ( cd ${F}; ./Clean.sh )
+    fi
+    fi
+done
